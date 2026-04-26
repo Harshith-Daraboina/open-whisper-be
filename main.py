@@ -26,6 +26,7 @@ class TranscribeRequest(BaseModel):
     callback_url: str
 
 @app.get("/health")
+@app.head("/health")
 async def health():
     return {
         "status": "healthy",
