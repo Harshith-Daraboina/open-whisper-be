@@ -25,6 +25,17 @@ class TranscribeRequest(BaseModel):
     recording_url: str
     callback_url: str
 
+@app.get("/")
+async def root():
+    return {
+        "message": "Open Whisper API is running",
+        "status": "active",
+        "endpoints": {
+            "health": "/health",
+            "transcribe": "/transcribe (POST)"
+        }
+    }
+
 @app.get("/health")
 @app.head("/health")
 async def health():
